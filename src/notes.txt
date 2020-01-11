@@ -1,0 +1,41 @@
+Реализовать перемешивание 
+Определить когда игра окончена (beforeStart, going, finished)
+Менять кнопку start на restart 
+Добавить больше картинок
+
+
+Как сравнивать? 
+При клике на td:
+if (this.state.firstImgId === null) 
+1. запоминать e.target (img) в firstImgId
+2. e.target.hidden = false; 
+При next click:
+1. сравнить this.state.firstImgId.id[0] === e.target.id[0] 
+2. e.target.hidden = false; (2 sec)*
+If true {оставить показанными}
+If false {скрыть обе}
+=> this.state.firstImg = null; 
+
+Как реализовать перемешивание? 
+1. Add imgs in the arr 
+2. Shuffle arr
+
+Реализация если картинки не совпадают: 
+1. История в массиве 
+
+========Показать/спрять элеметы в React========
+Чтобы спрятать или показать img в React нужно использовать либо &&, либо ? (тернарный)
+Using react you must not query and manipulate an element with javascript
+==============Copying arrays============
+let b = Object.assing([], arr) - не  сработает глубокое копирование, если внутри arr есть объекты (ссылки на них будут все равно сохранены) 
+Решения: 
+1. Если внутри все объекты (не нет более глубоко вложенных): 
+let b = a.map(obj => Object.assign({}, obj) 
+2. Если внутри есть объекты в объектах (есть какие-то недостатки, хз какие пока)
+let b = JSON.parse(JSON.stringify(a)); 
+
+==============Вытащенные уроки===========
+1. Math.random 
+2. Состояние (хранение истории) 
+3. Показать, спрятать элементы
+4. && (важно! если возвращает 0, то 0 отрендерится, т.е. нужно чтобы возвращало именно false) 
